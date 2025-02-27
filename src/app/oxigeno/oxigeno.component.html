@@ -1,0 +1,100 @@
+<div class="dashboard-container">
+    <div class="dashboard-grid">
+      <!-- Panel principal de oxígeno -->
+      <div class="oxygen-section">
+        <div class="card main-card">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2>Oxígeno mg/L</h2>
+              <div class="time-range-selector">
+                <button [class.selected]="timeRange === 7" (click)="onTimeRangeChange(7)">Últimos 7 días</button>
+                <button [class.selected]="timeRange === 30" (click)="onTimeRangeChange(30)">Mes</button>
+                <button [class.selected]="timeRange === 90" (click)="onTimeRangeChange(90)">3 Meses</button>
+              </div>
+            </div>
+  
+            <div class="chart-layout">
+              <div class="chart-and-indicator">
+                <div id="oxygen-chart" class="line-chart"></div>
+  
+                <div class="indicator-section">
+                  <div class="circular-indicator">
+                    <svg class="progress-ring" width="160" height="160">
+                      <circle
+                        class="progress-ring-circle-bg"
+                        stroke="#e5e7eb"
+                        stroke-width="8"
+                        fill="transparent"
+                        r="70"
+                        cx="80"
+                        cy="80"
+                      />
+                      <circle
+                        class="progress-ring-circle"
+                        [attr.stroke]="getProgressColor()"
+                        stroke-width="8"
+                        fill="transparent"
+                        r="70"
+                        cx="80"
+                        cy="80"
+                        [style.strokeDashoffset]="440 - (440 * getProgressPercentage()) / 100"
+                      />
+                    </svg>
+                    <div class="temperature-display">
+                      <span class="temperature-value">{{currentOxygen.toFixed(1)}}</span>
+                    </div>
+                  </div>
+  
+                  <div class="status-indicator" [style.background-color]="getProgressColor()">
+                    <span class="status-text">{{getOxygenStatus().label}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Panel de información del dispositivo -->
+      <div class="device-section">
+        <div class="card device-card">
+          <h2 class="titulo">Dispositivo vinculado</h2>
+  
+          <div class="device-status">
+            <div class="icon-container">
+              <svg class="chip-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 9h6v6H9z" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 12h2M18 12h2M12 4v2M12 18v2" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="label">Estado actual:</p>
+              <p class="value" [class.connected]="isDeviceConnected()" [class.disconnected]="!isDeviceConnected()">
+                {{ deviceInfo.status }}
+              </p>
+            </div>
+          </div>
+  
+          <div class="separator"></div>
+  
+          <div class="device-details">
+            <div>
+              <p class="label">ID del dispositivo:</p>
+              <p class="value">{{ deviceInfo.id }}</p>
+            </div>
+            <div>
+              <p class="label">Nombre:</p>
+              <p class="value">{{ deviceInfo.name }}</p>
+            </div>
+          </div>
+  
+          <div class="separator"></div>
+  
+          <div class="status-label" [class.connected]="isDeviceConnected()" [class.disconnected]="!isDeviceConnected()">
+            {{ deviceInfo.status }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

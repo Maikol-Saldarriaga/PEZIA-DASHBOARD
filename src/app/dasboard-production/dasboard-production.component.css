@@ -1,0 +1,26 @@
+.all{
+    padding: 2rem;
+}
+
+.temperatura {
+    padding-right: 0%;
+}
+
+.oxy {
+    padding-right: 0%;
+
+}
+
+.pH {
+    padding-right: 0%;
+padding-bottom: 0px;
+}
+
+.peso {
+    margin-top: -7rem;
+    padding-bottom: 5rem;
+}
+
+.alimentacion-medicacion{
+    margin-right: 5rem;
+}

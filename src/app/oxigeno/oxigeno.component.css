@@ -1,0 +1,248 @@
+
+
+   .dashboard-container{
+    margin-right: 2rem;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+   }
+ 
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+
+  }
+  
+  .card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 6px rgb(34, 40, 103);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-card {
+    height: 90%;
+  }
+  
+  .device-card {
+    height: 90%;
+    width: 90%;
+    padding: 1.5rem;
+    
+
+  }
+  
+  .chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chart-header h2 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .time-range-selector {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .time-range-selector button {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .time-range-selector button.selected {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  .chart-and-indicator {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .line-chart {
+    flex: 1;
+    height: 250px;
+  }
+  
+  .indicator-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .circular-indicator {
+    position: relative;
+    width: 160px;
+    height: 160px;
+  }
+  
+  .progress-ring {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-ring-circle {
+    stroke-dasharray: 440;
+    transition: stroke-dashoffset 0.35s;
+  }
+  
+  .temperature-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .temperature-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Estilos del panel de dispositivo */
+  .device-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .chip-icon {
+    width: 100%;
+    height: 100%;
+    color: var(--color-primary);
+  }
+  
+  .titulo {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 1.5rem 0;
+  }
+  
+  .device-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  
+  .value {
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0.25rem 0 0;
+    transition: color 0.2s;
+  }
+  
+  .value.connected {
+    color: #10b981;
+  }
+  
+  .value.disconnected {
+    color: #ef4444;
+  }
+  
+  .connect-button {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .connect-button.connected {
+    background-color: #10b981;
+  }
+  
+  .connect-button.disconnected {
+    background-color: #ef4444;
+  }
+  
+  .status-label {
+    width: 90%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+  
+  .status-label.connected {
+    background-color: #10b981;
+  }
+  
+  .status-label.disconnected {
+    background-color: #ef4444;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .chart-and-indicator {
+      flex-direction: column;
+    }
+  }

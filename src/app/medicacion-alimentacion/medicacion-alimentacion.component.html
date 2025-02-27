@@ -1,0 +1,115 @@
+<div class="dashboard-container">
+    <div class="dashboard-grid">
+      <!-- Panel principal de peso -->
+      <div class="weight-section">
+        <div class="card main-card">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2>Peso (gr)</h2>
+              <div class="time-range-selector">
+                <button [class.selected]="timeRange === 7" (click)="onTimeRangeChange(7)">Últimos 7 días</button>
+                <button [class.selected]="timeRange === 30" (click)="onTimeRangeChange(30)">Mes</button>
+                <button [class.selected]="timeRange === 90" (click)="onTimeRangeChange(90)">3 Meses</button>
+              </div>
+            </div>
+  
+            <div class="chart-layout">
+              <div class="chart-and-indicator">
+                <div id="weightChart" class="line-chart"></div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="metrics-summary">
+              <div class="metric-box">
+                <div class="metric-header">
+                  <i class="fas fa-weight"></i>
+                  <span class="metric-label">Cantidad de alimento total:</span>
+                </div>
+                <span class="metric-value">{{ metrics.totalWeight }} gr</span>
+              </div>
+             
+              <div class="metric-box">
+                <div class="metric-header">
+                  <i class="fas fa-fish"></i>
+                  <span class="metric-label">Cantidad de alimento consumido:</span>
+                </div>
+                <span class="metric-value">{{ metrics.totalWeight * 0.9 }} gr</span>
+              </div>
+            </div>
+  
+            <div class="food-table">
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Cantidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let record of foodRecords">
+                      <td>{{ record.product }}</td>
+                      <td>{{ record.date | date:'dd/MM/yyyy' }}</td>
+                      <td>{{ record.time }}</td>
+                      <td>{{ record.amount }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Panel de métricas -->
+      <div class="metrics-section">
+        <div class="card metrics-card">
+          <h2>Medicación</h2>
+  
+          <div id="pieChart"></div>
+  
+          <div class="metrics-details">
+            <div class="metric-item">
+              <span class="label">Número de tratamientos:</span>
+              <span class="value">{{ treatments.length }}</span>
+            </div>
+            <div class="metric-item">
+              <span class="label">Factor con más porcentaje:</span>
+              <span class="value">{{ pieChartData[2].category }}</span>
+            </div>
+          </div>
+  
+          <div class="treatments-table">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tratamiento</th>
+                    <th>Dosis</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Producto</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let treatment of treatments">
+                    <td>{{ treatment.name }}</td>
+                    <td>{{ treatment.dose }}</td>
+                    <td>{{ treatment.startDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ treatment.endDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ treatment.product }}</td>
+                    <td>{{ treatment.result }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

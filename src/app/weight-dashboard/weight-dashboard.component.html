@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+    <div class="dashboard-grid">
+      <!-- Panel principal de peso -->
+      <div class="weight-section">
+        <div class="card main-card">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h2>Peso (gr)</h2>
+              <div class="time-range-selector">
+                <button [class.selected]="timeRange === 7" (click)="onTimeRangeChange(7)">Últimos 7 días</button>
+                <button [class.selected]="timeRange === 30" (click)="onTimeRangeChange(30)">Mes</button>
+                <button [class.selected]="timeRange === 90" (click)="onTimeRangeChange(90)">3 Meses</button>
+              </div>
+            </div>
+  
+            <div class="chart-layout">
+              <div class="chart-and-indicator">
+                <div id="weightChart" class="bar-chart"></div>  <!-- Changed to bar-chart -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Panel de métricas -->
+      <div class="metrics-section">
+        <div class="card device-card">
+          <h2 class="titulo">Detalles</h2>
+  
+          <div class="device-status">
+            <div class="icon-container">
+              <svg class="scale-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM15 19H9V17H15V19ZM19 16H5V5H19V16Z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 6L12 14M9 10L12 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="label">Biomasa total:</p>
+              <p class="value">{{ metrics.totalWeight.toFixed(2) }} gr</p>
+            </div>
+          </div>
+  
+          <div class="separator"></div>
+  
+          <div class="device-details">
+            <div>
+              <p class="label">Densidad de biomasa:</p>
+              <p class="value">{{ metrics.density.toFixed(2) }} gr</p>
+            </div>
+            <div>
+              <p class="label">Densidad de población:</p>
+              <p class="value">{{ metrics.populationDensity.toFixed(2) }} gr</p>
+            </div>
+          </div>
+  
+  
+          <div class="growth-chart-section">
+            <h3 class="growth-title">Crecimiento Acumulado</h3>
+            <div class="time-range-selector">
+              <button [class.selected]="growthTimeRange === 7" (click)="onGrowthTimeRangeChange(7)">Últimos 7 días</button>
+              <button [class.selected]="growthTimeRange === 30" (click)="onGrowthTimeRangeChange(30)">Mes</button>
+              <button [class.selected]="growthTimeRange === 90" (click)="onGrowthTimeRangeChange(90)">3 Meses</button>
+            </div>
+            <div id="growthChart" class="growth-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

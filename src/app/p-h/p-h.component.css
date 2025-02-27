@@ -1,0 +1,191 @@
+.dashboard-container {
+    
+    min-height: 100vh;
+    
+  }
+  
+  .card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 6px rgb(34, 40, 103);
+    height: 100%;
+  }
+  
+  .chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .chart-header h2 {
+    color: #222867;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .time-range-selector {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .time-range-selector button {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .time-range-selector button.selected {
+    border: 2px solid #222867;
+    font-weight: bold;
+  }
+  
+  .chart-layout {
+    flex: 1;
+  }
+  
+  .chart-and-indicator {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .indicator-section {
+    min-width: 300px;
+    flex-shrink: 0;
+  }
+  
+  .circular-indicator {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .ph-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .current-value, .current-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .label {
+    color: #6b7280;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+  
+  .ph-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222867;
+  }
+  
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-width: 80px;
+    justify-content: center;
+  }
+  
+  .line-chart {
+    flex: 1;
+    height: 350px;
+    min-width: 600px;
+  }
+  
+  @media (max-width: 1024px) {
+    .chart-and-indicator {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .line-chart {
+      min-width: 100%;
+      height: 300px;
+    }
+  
+    .ph-info {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  .status-indicator.ácido {
+    background-color: #FF6347;
+  }
+  
+  .status-indicator.óptimo {
+    background-color: #00FF00;
+  }
+  
+  .status-indicator.básico {
+    background-color: #3498db;
+  }
+  
+  button.bg-blue-500 {
+    background-color: #222867;
+    color: white;
+  }
+  
+  button.bg-gray-200 {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .time-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    background-color: #e5e7eb;
+    color: #374151;
+    transition: all 0.3s ease;
+  }
+  
+  .time-filter-btn:hover {
+    background-color: #d1d5db;
+  }
+  
+  .bg-white {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }

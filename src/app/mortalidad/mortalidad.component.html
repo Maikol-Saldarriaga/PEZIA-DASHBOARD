@@ -1,0 +1,34 @@
+<div class="dashboard-container">
+
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>Mortalidad</h3>
+      <div class="chart-header">
+        <span class="chart-title">% Porcentaje mortalidad</span>
+      </div>
+      <div class="chart-section">
+        <div class="stats-container">
+          <div class="stat-badge alive">
+            <i class="fas fa-heart"></i>
+            <span>{{fishData.alive}}</span>
+            <span class="label">Peces vivos</span>
+          </div>
+          <div class="stat-badge dead">
+            <i class="fas fa-skull-crossbones"></i>
+            <span>{{fishData.dead}}</span>
+            <span class="label">Peces muertos</span>
+          </div>
+        </div>
+        <div id="donut-chart" class="chart-content"></div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <span class="chart-title">Cantidad de peces</span>
+      </div>
+      <div id="bar-chart" class="chart-content"></div>
+    </div>
+  </div>
+</div>

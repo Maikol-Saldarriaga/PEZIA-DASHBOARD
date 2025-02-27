@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pezia_dashboard:build:production"
+              "buildTarget": "pezia_dashboard:build:production"
             },
             "development": {
-              "browserTarget": "pezia_dashboard:build:development"
+              "buildTarget": "pezia_dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pezia_dashboard:build"
+            "buildTarget": "pezia_dashboard:build"
           }
         },
         "test": {
